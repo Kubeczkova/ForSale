@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+/* Custom global CSS - works fine alongside Tailwind */
+body {
+	font-family: system-ui, sans-serif;
+}
+

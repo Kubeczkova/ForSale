@@ -1,0 +1,35 @@
+# Environment
+.env
+.env.*
+!.env.template
+!.env.example
+
+# Dependencies
+node_modules/
+
+# SvelteKit build output
+.svelte-kit/
+build/
+dist/
+
+# Vite cache
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JetBrains IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
