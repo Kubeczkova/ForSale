@@ -1,7 +1,71 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;600&display=swap');
 
-/* Custom global CSS - works fine alongside Tailwind */
 body {
-	font-family: system-ui, sans-serif;
+	font-family: 'Inter', system-ui, sans-serif;
+	background-color: #faf9f6;
+	color: #1a1c1a;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+/* Sub-pages: offset content below the fixed 64-px header */
+.page-offset {
+	padding-top: 4rem; /* 64px = h-16 */
+}
+
+/* Anchor targets: leave room for the fixed header when scrolled to */
+[id] {
+	scroll-margin-top: 4rem;
+}
+
+@theme {
+	/* ── Surfaces ── */
+	--color-surface:           #faf9f6;
+	--color-surface-dim:       #dbdad7;
+	--color-surface-low:       #f4f3f1;
+	--color-surface-container: #efeeeb;
+	--color-surface-high:      #e9e8e5;
+	--color-surface-highest:   #e3e2e0;
+
+	/* ── On-surface text ── */
+	--color-on-surface:         #1a1c1a;
+	--color-on-surface-variant: #54433c;
+	--color-inverse-surface:    #2f312f;
+	--color-inverse-on-surface: #f2f1ee;
+
+	/* ── Outlines / dividers ── */
+	--color-outline:         #87736b;
+	--color-outline-variant: #dac1b8;
+
+	/* ── Primary (Sienna / Terracotta) ── */
+	--color-primary:              #823b18;
+	--color-primary-container:    #a0522d;
+	--color-on-primary:           #ffffff;
+	--color-on-primary-container: #ffe1d6;
+	--color-inverse-primary:      #ffb596;
+
+	/* ── Secondary (Sage Green) ── */
+	--color-secondary:             #51634c;
+	--color-secondary-container:   #d1e6c9;
+	--color-on-secondary:          #ffffff;
+	--color-on-secondary-container: #556850;
+
+	/* ── Tertiary (Warm Taupe) ── */
+	--color-tertiary:             #6c4820;
+	--color-tertiary-container:   #885f35;
+	--color-on-tertiary:          #ffffff;
+	--color-on-tertiary-container: #ffe2c9;
+
+	/* ── Error ── */
+	--color-error:             #ba1a1a;
+	--color-on-error:          #ffffff;
+	--color-error-container:   #ffdad6;
+	--color-on-error-container: #93000a;
+
+	/* ── Typography ── */
+	--font-display: 'Playfair Display', serif;
+	--font-body:    'Inter', sans-serif;
+}

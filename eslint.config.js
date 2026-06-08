@@ -33,11 +33,14 @@ export default defineConfig(
 				parser: ts.parser,
 				svelteConfig
 			}
+		},
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off'
 		}
 	},
 	{
-		// Override or add rule settings here, such as:
-		// 'svelte/button-has-type': 'error'
-		rules: {}
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off'
+		}
 	}
 );
