@@ -1,5 +1,5 @@
 <script lang="ts">
-	let currentBid = '2 500 000 Kč';
+	let { maxBid }: { maxBid: { price: number } | null } = $props();
 	let imageSrc = null;
 </script>
 
@@ -53,7 +53,9 @@
 			<div>
 				<p class="text-xs font-semibold uppercase mb-1"
 					style="color: rgba(255,181,150,0.7); letter-spacing: 0.1em;">Aktuální nabídka</p>
-				<p class="font-display font-semibold text-white text-3xl md:text-4xl">{currentBid}</p>
+				<p class="font-display font-semibold text-white text-3xl md:text-4xl">
+					{maxBid?.price?.toLocaleString('cs-CZ') ?? '—'} Kč
+				</p>
 			</div>
 
 			<a

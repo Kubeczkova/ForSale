@@ -134,7 +134,7 @@
 				8. Kontakt
 			</h2>
 			<p class="text-base leading-relaxed max-w-2xl" style="font-family: 'Inter', sans-serif; color: #54433c; line-height: 1.6;">
-				V případě dotazů se obraťte na prodávajícího: <br> Jiří Kubeczka  ·  <a href="mailto:info@myfilm.cz">info@myfilm.cz</a>  ·  +420 606 787 927
+				V případě dotazů se obraťte na prodávajícího: <br> Jiří Kubeczka  ·  <a href="mailto:info@myfilm.cz">info@myfilm.cz</a>  ·  606 787 927
 			</p>
 			<p class="text-base leading-relaxed max-w-2xl" style="font-family: 'Inter', sans-serif; color: #54433c; line-height: 1.6;">
 				Tyto podmínky jsou platné ode dne jejich zveřejnění.

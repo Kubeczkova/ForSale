@@ -3,14 +3,13 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import BidForm from '$lib/components/BidForm.svelte';
+
+	let { data } = $props();
 </script>
 
 <div class="bg-surface">
-	<Hero/>
-
+	<Hero maxBid={data} />
 	<Contact />
-
 	<Gallery />
-
-	<BidForm />
+	<BidForm maxBid={data} />
 </div>

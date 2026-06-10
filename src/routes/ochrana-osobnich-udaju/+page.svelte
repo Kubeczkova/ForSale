@@ -48,7 +48,7 @@
 						E-mail: <a href="mailto:info@myfilm.cz">info@myfilm.cz</a>
 				</li>
 				<li class="flex items-start gap-2 text-sm font-medium" style="color: #823b18; font-family: 'Inter', sans-serif;">
-						Telefon: +420 606 787 927
+						Telefon: 606 787 927
 				</li>
 			</ul>
 		</section>
