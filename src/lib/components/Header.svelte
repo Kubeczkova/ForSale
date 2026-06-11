@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { config } from '$lib/config';
+	import t from '$lib/i18n/cs.json';
 
 	const navLinks = [
-		{ label: 'Nemovitost', anchor: 'kontakt'  },
-		{ label: 'Galerie',    anchor: 'galerie'  },
-		{ label: 'Přihodit',  anchor: 'prihodit', primary: true },
+		{ label: t.header.property, anchor: 'kontakt'  },
+		{ label: t.header.gallery,  anchor: 'galerie'  },
+		{ label: t.header.bid,      anchor: 'prihodit', primary: true },
 	];
 
 	function href(anchor: string) {
@@ -17,7 +19,7 @@
 	<div class="max-w-5xl mx-auto px-5 md:px-16 h-16 flex items-center justify-between gap-6">
 
 		<a href="/" class="font-display font-semibold text-lg text-on-surface shrink-0" style="text-decoration: none;">
-			Hnojník 383
+			{config.property.name}
 		</a>
 
 		<nav class="flex items-center gap-1">

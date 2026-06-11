@@ -1,21 +1,9 @@
 <script lang="ts">
-	// ─── Swap seller info here ────────────────────────────────────────────────
-	const seller = {
-		name:  'Jiří Kubeczka',
-		photo: '',                     // e.g. '/images/prodavajici.jpg'
-		role:  'Majitel nemovitosti',
-		email: 'info@myfilm.cz',
-		phone: '606 787 927',
-	};
+	import { config } from '$lib/config';
+	import t from '$lib/i18n/cs.json';
 
-	// ─── Story content — edit freely ─────────────────────────────────────────
-	const story = {
-		overline: 'Příběh nemovitosti',
-		headline: 'Dům postavený\npro rodinu.',
-		why:     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-		reason:  `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-		promise: `Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-	};
+	const seller = config.seller;
+	const story  = t.contact.story;
 </script>
 
 <section class="bg-surface" id="kontakt">
@@ -48,7 +36,7 @@
 							<img src={seller.photo} alt={seller.name} class="w-full h-full object-cover" />
 						{:else}
 							<div class="w-full h-full flex items-center justify-center text-2xl font-semibold font-display text-outline">
-								{seller.name.split(' ').map(w => w[0]).join('')}
+								{seller.name.split(' ').map((w: string) => w[0]).join('')}
 							</div>
 						{/if}
 					</div>
@@ -84,10 +72,8 @@
 
 				<!-- Trust badge -->
 				<div class="rounded-2xl p-5 mt-2 bg-surface-container border border-surface-high">
-					<p class="text-xs font-semibold uppercase text-outline mb-2" style="letter-spacing: 0.1em;">Prodej bez realitní kanceláře.</p>
-					<p class="text-sm text-on-surface-variant" style="line-height: 1.6;">
-						Rádi vám zodpovíme jakékoli otázky a domluvíme prohlídku. Kompletní dokumentace k nahlédnutí při prohlídce.
-					</p>
+					<p class="text-xs font-semibold uppercase text-outline mb-2" style="letter-spacing: 0.1em;">{t.contact.trust_title}</p>
+					<p class="text-sm text-on-surface-variant" style="line-height: 1.6;">{t.contact.trust_text}</p>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import t from '$lib/i18n/cs.json';
+
 	let { data } = $props();
 	const result = data as { success: boolean; error?: string };
 </script>
@@ -14,10 +16,10 @@
 				</svg>
 			</div>
 			<h1 class="font-display font-semibold text-on-surface text-3xl" style="letter-spacing:-0.01em;">
-				Příhoz potvrzen
+				{t.verification.success_heading}
 			</h1>
 			<p class="text-base text-on-surface-variant" style="line-height:1.6;">
-				Váš příhoz byl úspěšně ověřen. Budeme vás kontaktovat s dalšími informacemi.
+				{t.verification.success_text}
 			</p>
 		{:else}
 			<div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background:#ffdad6;">
@@ -26,15 +28,15 @@
 				</svg>
 			</div>
 			<h1 class="font-display font-semibold text-on-surface text-3xl" style="letter-spacing:-0.01em;">
-				Odkaz je neplatný
+				{t.verification.error_heading}
 			</h1>
 			<p class="text-base text-on-surface-variant" style="line-height:1.6;">
-				{result.error ?? 'Token je neplatný nebo již byl použit.'}
+				{result.error ?? t.verification.error_default}
 			</p>
 		{/if}
 
 		<a href="/" class="mt-2 text-sm font-semibold text-primary underline underline-offset-2 hover:text-primary-container">
-			Zpět na hlavní stránku
+			{t.verification.back}
 		</a>
 	</div>
 </div>

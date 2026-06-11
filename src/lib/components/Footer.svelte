@@ -1,9 +1,11 @@
 <script lang="ts">
+	import t from '$lib/i18n/cs.json';
+
 	const legalLinks = [
-		{ label: 'Jak probíhá výběrové řízení?', href: '/zpusob-nakupu' },
-		{ label: 'Obchodní podmínky',             href: '/obchodni-podminky' },
-		{ label: 'Ochrana osobních údajů',        href: '/ochrana-osobnich-udaju' },
-		{ label: 'Cookies',                        href: '/cookies' },
+		{ label: t.footer.how_it_works, href: '/zpusob-nakupu' },
+		{ label: t.footer.terms,        href: '/obchodni-podminky' },
+		{ label: t.footer.privacy,      href: '/ochrana-osobnich-udaju' },
+		{ label: t.footer.cookies,      href: '/cookies' },
 	];
 </script>
 

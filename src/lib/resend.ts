@@ -1,11 +1,14 @@
-import { Resend } from 'resend'
-import { RESEND_API_KEY } from '$env/static/private'
+import { Resend } from 'resend';
+import { RESEND_API_KEY } from '$env/static/private';
+import { config } from '$lib/config';
 
-const resend = new Resend(RESEND_API_KEY)
+export const resend = new Resend(RESEND_API_KEY);
 
-await resend.emails.send({
-  from:    'onboarding@resend.dev',
-  to:      'kubeczkova.n@gmail.com',
-  subject: 'Potvrďte váš příhoz',
-  html:    `<p>Klikněte <a href="...">zde</a></p>`
-})
+export async function sendVerificationEmail(to: string, verificationUrl: string) {
+	return resend.emails.send({
+		from:    config.email.from,
+		to,
+		subject: 'Potvrďte váš příhoz',
+		html:    `<p>Klikněte <a href="${verificationUrl}">zde</a> pro potvrzení příhozu. Odkaz platí ${config.auction.tokenExpiryMinutes} minut.</p>`,
+	});
+}

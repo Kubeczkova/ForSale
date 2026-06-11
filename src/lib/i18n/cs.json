@@ -1,0 +1,163 @@
+{
+  "hero": {
+    "overline": "Výběrové řízení · Prodej nemovitosti",
+    "stats": {
+      "disposition": "Dispozice",
+      "land": "Pozemek",
+      "location": "Lokalita"
+    },
+    "current_bid": "Aktuální nabídka",
+    "cta": "Přihodit →",
+    "scroll": "Více informací"
+  },
+
+  "header": {
+    "property": "Nemovitost",
+    "gallery": "Galerie",
+    "bid": "Přihodit"
+  },
+
+  "contact": {
+    "story": {
+      "overline": "Příběh nemovitosti",
+      "headline": "Dům postavený\npro rodinu.",
+      "why":     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "reason":  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "promise": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    "trust_title": "Prodej bez realitní kanceláře.",
+    "trust_text":  "Rádi vám zodpovíme jakékoli otázky a domluvíme prohlídku. Kompletní dokumentace k nahlédnutí při prohlídce."
+  },
+
+  "form": {
+    "overline": "Máte zájem?",
+    "heading":  "Formulář příhozu",
+
+    "name_label":        "Jméno a příjmení",
+    "name_placeholder":  "Jan Novák",
+    "email_label":       "E-mail",
+    "email_placeholder": "jan.novak@email.cz",
+    "phone_label":       "Telefon",
+    "phone_placeholder": "606 787 927",
+
+    "bid_type_label":      "Typ příhozu",
+    "bid_type_help_title": "Jak fungují typy příhozů?",
+
+    "single_tag":   "Jednorázový",
+    "single_title": "Jednorázový příhoz",
+    "single_desc":  "Přesná částka, kterou nabízíte. Zobrazí se ostatním okamžitě. Pokud vás někdo přehodí, musíte přihodit ručně.",
+
+    "max_tag":   "★ Doporučeno",
+    "max_title": "Maximální příhoz",
+    "max_desc":  "Systém za vás automaticky přehodí konkurenci — vždy jen o nejmenší nutný krok. Váš limit zůstane skrytý.",
+
+    "current_bid_label": "Aktuálně nejvyšší příhoz:",
+    "price_label":       "Výše příhozu",
+    "price_label_max":   "Maximální částka",
+
+    "terms_prefix": "Souhlasím s",
+    "terms_link":   "obchodními podmínkami",
+    "terms_suffix": "výběrového řízení.",
+
+    "submit": "Potvrdit příhoz",
+
+    "errors": {
+      "name":   "Zadejte celé jméno a příjmení",
+      "email":  "Zadejte platný e-mail",
+      "phone":  "Zadejte platné telefonní číslo (9 číslic)",
+      "price":  "Zadejte platnou částku příhozu",
+      "terms":  "Musíte souhlasit s obchodními podmínkami",
+      "server": "Nepodařilo se uložit nabídku. Zkuste to prosím znovu."
+    },
+
+    "success_heading": "Příhoz odeslán",
+    "success_text":    "Zkontrolujte svůj e-mail a klikněte na potvrzovací odkaz — jinak příhoz vyprší."
+  },
+
+  "verification": {
+    "success_heading": "Příhoz potvrzen",
+    "success_text":    "Váš příhoz byl úspěšně ověřen. Budeme vás kontaktovat s dalšími informacemi.",
+    "error_heading":   "Odkaz je neplatný",
+    "error_default":   "Token je neplatný nebo již byl použit.",
+    "error_missing":   "Chybí ověřovací token.",
+    "error_expired":   "Potvrzovací odkaz vypršel. Podejte příhoz znovu.",
+    "back":            "Zpět na hlavní stránku"
+  },
+
+  "footer": {
+    "how_it_works": "Jak probíhá výběrové řízení?",
+    "terms":        "Obchodní podmínky",
+    "privacy":      "Ochrana osobních údajů",
+    "cookies":      "Cookies"
+  },
+
+  "how_it_works": {
+    "heading": "Jak probíhá\nvýběrové řízení?",
+    "intro":   "Tento web slouží jako otevřené výběrové řízení o nejvhodnější nabídku. Nejde o veřejnou dražbu — majitel si vyhrazuje právo vybrat kupujícího podle vlastního uvážení.",
+
+    "bid_types_heading": "Způsob příhozu",
+    "single": {
+      "tag":   "Jednorázový",
+      "title": "Jednorázový příhoz",
+      "desc":  "Zadáte přesnou částku, za kterou jste ochotni nemovitost koupit. Tato částka se okamžitě zobrazí jako vaše aktuální nabídka. Pokud vás někdo přehodí, musíte podat nový příhoz ručně.",
+      "example_label": "Příklad",
+      "example": "Aktuální nejvyšší nabídka je <strong>2 500 000 Kč</strong>. Zadáte <strong>2 510 000 Kč</strong>. Vaše nabídka se zobrazí jako nejvyšší — ale pokud vás někdo přehodí, dostanete e-mail a musíte příhoz opakovat ručně."
+    },
+    "max": {
+      "tag":   "★ Doporučeno",
+      "title": "Maximální příhoz",
+      "desc":  "Zadáte nejvyšší částku, kterou jste ochotni zaplatit. Systém za vás automaticky přehodí konkurenční nabídky — vždy jen o nejmenší nutný krok.",
+      "example_label": "Příklad",
+      "example": "Aktuální nejvyšší nabídka je <strong>2 500 000 Kč</strong>. Zadáte maximum <strong>2 700 000 Kč</strong>. Systém vaši nabídku okamžitě zobrazí jako <strong>2 510 000 Kč</strong>. Pokud vás někdo přehodí na 4 700 000 Kč, systém vás automaticky posune na <strong>2 520 000 Kč</strong>. Váš skutečný limit zůstane skrytý."
+    },
+    "verification_note": "<strong>Váš příhoz musí být ověřen.</strong> Po odeslání formuláře obdržíte potvrzovací e-mail. Teprve po kliknutí na odkaz v e-mailu se vaše nabídka zobrazí ostatním zájemcům. Tím omezujeme falešné příhozy.",
+
+    "steps_heading": "Jak přihodit",
+    "steps": [
+      {
+        "title": "Klikněte na tlačítko „Přihodit\"",
+        "desc": "Tlačítko najdete v hlavní části stránky. Otevře se formulář příhozu."
+      },
+      {
+        "title": "Vyplňte kontaktní údaje a zvolte způsob příhozu",
+        "desc": "Zadejte jméno, e-mail a telefon. Vyberte, zda chcete jednorázový nebo maximální příhoz, a vyplňte částku."
+      },
+      {
+        "title": "Potvrďte příhoz e-mailem",
+        "desc": "Na váš e-mail přijde zpráva s potvrzovacím odkazem. Klikněte na něj do 30 minut — jinak nabídka vyprší."
+      },
+      {
+        "title": "Vaše nabídka je aktivní",
+        "desc": "Po potvrzení se vaše nabídka zobrazí v přehledu. Budeme vás informovat e-mailem, pokud vás někdo přehodí."
+      },
+      {
+        "title": "Konec výběrového řízení",
+        "desc": "Majitel kontaktuje zájemce s nejvyšší nabídkou a dohodne další postup. Výběrové řízení může být ukončeno kdykoli dle rozhodnutí majitele."
+      }
+    ],
+
+    "faq_heading": "Časté otázky",
+    "faqs": [
+      {
+        "q": "Je příhoz právně závazný?",
+        "a": "Ne. Příhoz vyjadřuje vážný zájem o nemovitost, ale není právně závaznou smlouvou. Majitel si vyhrazuje právo odmítnout všechny nabídky nebo si vybrat kupujícího podle vlastních kritérií, nejen podle výše nabídky."
+      },
+      {
+        "q": "Uvidí ostatní zájemci moji maximální částku?",
+        "a": "Ne. Pokud zvolíte maximální příhoz, váš skutečný limit zůstane skrytý. Ostatní vidí pouze aktuálně zobrazenou výši nabídky."
+      },
+      {
+        "q": "Dostanu zprávu, pokud mě někdo přehodí?",
+        "a": "Ano. Na váš e-mail zašleme upozornění, že vaše nabídka již není nejvyšší, a budete mít možnost přihodit znovu."
+      },
+      {
+        "q": "Proč musím příhoz potvrzovat e-mailem?",
+        "a": "Ověření slouží k ochraně všech zájemců před falešnými nebo škodolibými nabídkami. Bez potvrzení se příhoz nezobrazí."
+      },
+      {
+        "q": "Kdy výběrové řízení skončí?",
+        "a": "Datum ukončení bude zveřejněno na hlavní stránce. Majitel si vyhrazuje právo výběrové řízení prodloužit nebo ukončit dříve."
+      }
+    ]
+  }
+}
