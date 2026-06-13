@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="cs">
+    <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+    <body style="margin:0;padding:0;background:#faf9f6;font-family:'Inter',system-ui,sans-serif;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#faf9f6;padding:48px 16px;">
+        <tr><td align="center">
+          <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+            <!-- Card -->
+            <tr><td style="background:#ffffff;border-radius:24px;border:1px solid #e9e8e5;padding:48px 40px;">
+
+          <!-- Icon -->
+          <div style="text-align:center;margin-bottom:32px;">
+            <div style="width:56px;height:56px;background:#823b18;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;">
+              <span style="font-size:24px;line-height:1;display:block;">✉️</span>
+            </div>
+          </div>
+
+          <!-- Heading -->
+          <h1 style="margin:0 0 12px;font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#1a1c1a;letter-spacing:-0.01em;line-height:1.2;">
+            Váš příhoz čeká na ověření
+          </h1>
+
+          <!-- Body -->
+          <p style="margin:0 0 8px;font-size:16px;line-height:1.7;color:#54433c;">
+            Obdrželi jsme vaši nabídku na nemovitost <strong style="color:#1a1c1a;">{{PROPERTY_NAME}}</strong>.
+            Aby byla platná a zapsána do výběrového řízení, potřebujeme ještě ověřit vaši e-mailovou adresu.
+          </p>
+          <p style="margin:0 0 36px;font-size:16px;line-height:1.7;color:#54433c;">
+            Stačí kliknout na tlačítko níže. Odkaz je platný po dobu <strong style="color:#1a1c1a;">{{EXPIRY_MINUTES}} minut</strong>.
+          </p>
+
+          <!-- CTA -->
+          <div style="text-align:center;">
+            <a href="{{VERIFICATION_URL}}"
+               style="display:inline-block;background:#823b18;color:#ffffff;text-decoration:none;font-size:16px;font-weight:600;padding:16px 40px;border-radius:16px;letter-spacing:0.01em;box-shadow:0 4px 20px rgba(130,59,24,0.3);">
+              Validovat příhoz
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <hr style="border:none;border-top:1px solid #e9e8e5;margin:36px 0;">
+
+          <!-- Fine print -->
+          <p style="margin:0;font-size:13px;color:#87736b;line-height:1.6;">
+            Tento e-mail jste obdrželi, protože někdo zadal vaši adresu ve formuláři příhozu. Pokud jste to nebyli vy, jednoduše zprávu ignorujte.
+          </p>
+          <p style="margin:8px 0 0;font-size:12px;color:#87736b;word-break:break-all;">
+            Tlačítko nefunguje? Zkopírujte odkaz přímo do prohlížeče: {{VERIFICATION_URL}}
+          </p>
+
+            </td></tr>
+
+          </table>
+        </td></tr>
+      </table>
+    </body>
+</html>

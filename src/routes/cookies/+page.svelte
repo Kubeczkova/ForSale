@@ -34,8 +34,15 @@
 				Přehled cookies
 			</h2>
 
-			<!-- Elevated card — white lift on cream -->
-			<div class="rounded-2xl overflow-hidden" style="background: #ffffff; box-shadow: 0 4px 24px rgba(108,72,32,0.08);">
+			<!-- Mobile: card -->
+			<div class="sm:hidden rounded-2xl px-5 py-4" style="background:#ffffff; box-shadow:0 4px 24px rgba(108,72,32,0.08);">
+				<p class="font-semibold text-sm mb-2" style="color:#1a1c1a;">localStorage — nezbytné</p>
+				<p class="text-sm mb-3" style="color:#54433c; line-height:1.6;">Uložení předvyplněných údajů formuláře (jméno, e-mail, telefon) pro pohodlí při opakované návštěvě.</p>
+				<span class="inline-block px-3 py-1 rounded-full text-xs font-semibold" style="background-color: rgba(81,99,76,0.1); color: #51634c;">nevyžadován</span>
+			</div>
+
+			<!-- Desktop: table -->
+			<div class="hidden sm:block rounded-2xl overflow-hidden" style="background: #ffffff; box-shadow: 0 4px 24px rgba(108,72,32,0.08);">
 				<table class="w-full text-sm" style="font-family: 'Inter', sans-serif;">
 					<thead>
 						<tr style="background-color: #efeeeb;">
@@ -47,7 +54,7 @@
 					<tbody>
 						<tr class="border-t" style="border-color: #e9e8e5;">
 							<td class="px-6 py-5 font-medium whitespace-nowrap" style="color: #1a1c1a;">localStorage — nezbytné</td>
-							<td class="px-6 py-5" style="color: #54433c; line-height: 1.6;">Uložení předvyplněných údajů formuláře (jméno, e-mail, telefon) pro pohodlí při opakované návštěvě</td>
+							<td class="px-6 py-5" style="color: #54433c; line-height: 1.6;">Uložení předvyplněných údajů formuláře (jméno, e-mail, telefon) pro pohodlí při opakované návštěvě.</td>
 							<td class="px-6 py-5">
 								<span class="inline-block px-3 py-1 rounded-full text-xs font-semibold" style="background-color: rgba(81,99,76,0.1); color: #51634c;">
 									nevyžadován

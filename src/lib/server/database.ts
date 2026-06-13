@@ -2,6 +2,7 @@ import { supabaseAdmin } from "$lib/server/supabase";
 import { fail } from "@sveltejs/kit";
 import { config } from "$lib/config";
 import t from "$lib/i18n/cs.json";
+import { sendVerificationEmail } from '$lib/server/email/resend';
 
 export type BidErrors = Partial<Record<'name' | 'email' | 'phone' | 'price' | 'terms' | 'server', string>>;
 
@@ -43,13 +44,15 @@ export async function createBid(request: Request) {
 		});
 	}
 
+	const token = crypto.randomUUID()
+
 	const { error } = await supabaseAdmin.from('bid').insert({
 		name,
 		email,
 		phone,
 		is_max: isMax,
 		price,
-		verification_token: crypto.randomUUID()
+		verification_token: token
 	});
 
 	if (error) {
@@ -59,6 +62,7 @@ export async function createBid(request: Request) {
 			values: { name, email, phone, isMax, price: formData.get('price') as string }
 		});
 	}
+	await sendVerificationEmail(email, token);
 
 	return { success: true };
 }
@@ -96,21 +100,21 @@ export async function verifyBid(token: string): Promise<{ success: boolean; erro
 		.eq('id', existing.id);
 
 	if (error) {
-		console.error('verifyBid error:', error);
 		return { success: false, error: t.verification.error_default };
 	}
 
 	return { success: true };
 }
 
-export async function getMaxBit(): Promise<{ price: number } | null> {
+export async function getMaxBid(): Promise<{ price: number } | null> {
 	const { data, error } = await supabaseAdmin
 		.from('bid')
-		.select('price')
+		.select('price, is_max')
 		.not('verified_at', 'is', null)
 		.order('price', { ascending: false })
-		.limit(1)
-		.single();
+		.limit(2);
+
+	// co se stane když je jen ejdna nabídka
 
 	if (error) {
 		if (error.code === 'PGRST116') return { price: config.auction.startingPrice };
@@ -118,5 +122,10 @@ export async function getMaxBit(): Promise<{ price: number } | null> {
 		return { price: config.auction.startingPrice };
 	}
 
-	return data ? { price: data.price } : { price: config.auction.startingPrice };
+	if (!data[0].is_max) {
+		return { price: data[0].price }
+	}
+	else {
+		return { price: data[1].price + config.auction.minBidStep }
+	}
 }

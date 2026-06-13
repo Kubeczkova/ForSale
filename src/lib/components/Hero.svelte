@@ -51,7 +51,7 @@
 		<!-- Divider -->
 		<div class="w-16 h-px" style="background: rgba(218,193,184,0.4);"></div>
 
-		<!-- Current bid + CTA -->
+		<!-- Current bid -->
 		<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
 			<div>
 				<p class="text-xs font-semibold uppercase mb-1"
@@ -60,7 +60,10 @@
 					{maxBid?.price?.toLocaleString('cs-CZ') ?? '—'} Kč
 				</p>
 			</div>
+		</div>
 
+		<!-- CTA -->
+		<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
 			<a href="#prihodit"
 				class="bg-primary text-on-primary rounded-2xl font-semibold text-base transition-all duration-200 hover:bg-primary-container"
 				style="padding: 14px 36px; box-shadow: 0 4px 20px rgba(130,59,24,0.45); text-decoration: none; display: inline-block;">

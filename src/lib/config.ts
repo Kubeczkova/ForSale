@@ -31,10 +31,8 @@ export const config = {
 
 	// ── E-mail (Resend) ───────────────────────────────────────────────────────
 	email: {
-		/** Sender address — must be verified in Resend */
-		from:       'onboarding@resend.dev',
-		/** Admin e-mail that receives notifications */
-		adminEmail: 'kubeczkova.n@gmail.com',
+		from:       'na-prodej@resend.dev',
+		bcc: 		'info@myfilm.cz'
 	},
 
 } as const;

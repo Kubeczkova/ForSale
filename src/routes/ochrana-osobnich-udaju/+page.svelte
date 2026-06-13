@@ -32,25 +32,39 @@
 			</p>
 		</section>
 
-		<!-- Table section -->
-		<section class="space-y-3">
-			<h2 class="text-2xl md:text-3xl font-medium mb-8" style="font-family: 'Playfair Display', serif; color: #1a1c1a;">
-				Správce osobních údajů
+		<!-- Správce section -->
+		<section class="space-y-5">
+			<h2 class="text-2xl md:text-3xl font-medium" style="font-family: 'Playfair Display', serif; color: #1a1c1a;">
+				Správci osobních údajů
 			</h2>
-			<ul class="space-y-2 pl-1">
-				<li class="flex items-start gap-2 text-sm font-medium" style="color: #823b18; font-family: 'Inter', sans-serif;">
-						Jiří Kubeczka
-				</li>
-				<li class="flex items-start gap-2 text-sm font-medium" style="color: #823b18; font-family: 'Inter', sans-serif;">
-						Bytem: Hnojník 383
-				</li>
-				<li class="flex items-start gap-2 text-sm font-medium" style="color: #823b18; font-family: 'Inter', sans-serif;">
-						E-mail: <a href="mailto:info@myfilm.cz">info@myfilm.cz</a>
-				</li>
-				<li class="flex items-start gap-2 text-sm font-medium" style="color: #823b18; font-family: 'Inter', sans-serif;">
-						Telefon: 606 787 927
-				</li>
-			</ul>
+			<p class="text-base max-w-2xl" style="color:#54433c; line-height:1.6;">
+				S jakýmkoliv dotazem či žádostí týkající se vašich osobních údajů se můžete obrátit na kteréhokoliv ze správců.
+			</p>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+				<!-- Majitel nemovitosti -->
+				<div class="rounded-2xl p-6" style="background:#ffffff; box-shadow:0 4px 24px rgba(108,72,32,0.08); border:1px solid #e9e8e5;">
+					<p class="text-xs font-semibold uppercase mb-4" style="color:#87736b; letter-spacing:0.08em;">Majitel nemovitosti</p>
+					<p class="font-semibold text-base mb-4" style="color:#1a1c1a; font-family:'Playfair Display',serif;">Jiří Kubeczka</p>
+					<ul class="space-y-2 text-sm" style="color:#54433c;">
+						<li>Hnojník 383</li>
+						<li><a href="mailto:info@myfilm.cz" class="text-primary underline-offset-2 hover:underline">info@myfilm.cz</a></li>
+						<li><a href="tel:+420606787927" class="text-primary underline-offset-2 hover:underline">606 787 927</a></li>
+					</ul>
+				</div>
+
+				<!-- Správce webu -->
+				<div class="rounded-2xl p-6" style="background:#ffffff; box-shadow:0 4px 24px rgba(108,72,32,0.08); border:1px solid #e9e8e5;">
+					<p class="text-xs font-semibold uppercase mb-4" style="color:#87736b; letter-spacing:0.08em;">Správce webu</p>
+					<p class="font-semibold text-base mb-4" style="color:#1a1c1a; font-family:'Playfair Display',serif;">Nikola Kubeczková</p>
+					<ul class="space-y-2 text-sm" style="color:#54433c;">
+						<li>Hnojník 383</li>
+						<li><a href="mailto:kubeczkova.n@gmail.com" class="text-primary underline-offset-2 hover:underline">kubeczkova.n@gmail.com</a></li>
+						<li><a href="tel:+420770105939" class="text-primary underline-offset-2 hover:underline">770 105 939</a></li>
+					</ul>
+				</div>
+
+			</div>
 		</section>
 
 		<section class="space-y-3">
@@ -95,8 +109,22 @@
 				Účel a právní základ zpracování
 			</h2>
 
-			<!-- Elevated card — white lift on cream -->
-			<div class="rounded-2xl overflow-hidden" style="background: #ffffff; box-shadow: 0 4px 24px rgba(108,72,32,0.08);">
+			<!-- Mobile: cards -->
+			<div class="flex flex-col gap-3 sm:hidden">
+				{#each [
+					{ purpose: 'Vedení výběrového řízení', basis: 'Oprávněný zájem správce (čl. 6 odst. 1 písm. f) GDPR) — nutné pro vyhodnocení nabídek a kontaktování vybraného kupujícího' },
+					{ purpose: 'Ověření nabídky', basis: 'Oprávněný zájem — zamezení falešných příhozů a ochrana ostatních zájemců' },
+					{ purpose: 'Zasílání upozornění o přehození', basis: 'Oprávněný zájem — informování zájemce o stavu jeho nabídky' },
+				] as row}
+					<div class="rounded-2xl px-5 py-4" style="background:#ffffff; box-shadow:0 4px 24px rgba(108,72,32,0.08);">
+						<p class="font-semibold text-sm mb-2" style="color:#1a1c1a;">{row.purpose}</p>
+						<p class="text-sm" style="color:#54433c; line-height:1.6;">{row.basis}</p>
+					</div>
+				{/each}
+			</div>
+
+			<!-- Desktop: table -->
+			<div class="hidden sm:block rounded-2xl overflow-hidden" style="background: #ffffff; box-shadow: 0 4px 24px rgba(108,72,32,0.08);">
 				<table class="w-full text-sm" style="font-family: 'Inter', sans-serif;">
 					<thead>
 						<tr style="background-color: #efeeeb;">
@@ -121,5 +149,43 @@
 				</table>
 			</div>
 		</section>
+		<!-- Vaše práva -->
+		<section class="space-y-5">
+			<h2 class="text-2xl md:text-3xl font-medium" style="font-family: 'Playfair Display', serif; color: #1a1c1a;">
+				Vaše práva
+			</h2>
+			<p class="text-base max-w-2xl" style="color:#54433c; line-height:1.6;">
+				Jako subjekt údajů máte podle GDPR následující práva.
+				Žádost vyřídíme bez zbytečného odkladu, nejpozději do <strong style="color:#1a1c1a;">30 dnů</strong> od jejího doručení.
+				Žádost podejte e-mailem nebo telefonicky na kontakty uvedené výše.
+				Totožnost žadatele si vyhrazujeme právo ověřit.
+			</p>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+				{#each [
+					{ title: 'Právo na přístup', desc: 'Můžete kdykoli požádat o potvrzení, zda zpracováváme vaše osobní údaje, a o jejich kopii.' },
+					{ title: 'Právo na opravu', desc: 'Pokud jsou vaše údaje nepřesné nebo neúplné, máte právo žádat jejich opravu.' },
+					{ title: 'Právo na výmaz', desc: 'Máte právo požádat o smazání všech vašich osobních údajů, pokud pominul účel jejich zpracování.' },
+					{ title: 'Právo na omezení', desc: 'Můžete požádat o dočasné omezení zpracování, např. po dobu vyřizování námitky.' },
+					{ title: 'Právo vznést námitku', desc: 'Máte právo kdykoli vznést námitku proti zpracování na základě oprávněného zájmu.' },
+					{ title: 'Právo podat stížnost', desc: 'Máte právo podat stížnost u Úřadu pro ochranu osobních údajů (uoou.cz).' },
+				] as right}
+					<div class="rounded-2xl px-5 py-4" style="background:#ffffff; box-shadow:0 4px 24px rgba(108,72,32,0.08); border:1px solid #e9e8e5;">
+						<p class="font-semibold text-sm mb-1" style="color:#1a1c1a;">{right.title}</p>
+						<p class="text-sm" style="color:#54433c; line-height:1.6;">{right.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</section>
+
+		<!-- Doba uchování -->
+		<section class="space-y-3">
+			<h2 class="text-2xl md:text-3xl font-medium" style="font-family: 'Playfair Display', serif; color: #1a1c1a;">
+				Doba uchování údajů
+			</h2>
+			<p class="text-base max-w-2xl" style="color:#54433c; line-height:1.6;">
+				Osobní údaje uchováváme po dobu trvání výběrového řízení a nejvýše <strong style="color:#1a1c1a;">6 měsíců</strong> po jeho ukončení.
+			</p>
+		</section>
+
 	</main>
 </div>

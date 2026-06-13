@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { fly } from 'svelte/transition';
+	import { browser } from '$app/environment';
+	import { untrack } from 'svelte';
 	import type { ActionResult } from '@sveltejs/kit';
 	import { config } from '$lib/config';
 	import t from '$lib/i18n/cs.json';
@@ -9,16 +11,25 @@
 
 	let success = $state(false);
 
+	const LS_KEY = 'bid_contact';
+	const saved = browser ? JSON.parse(localStorage.getItem(LS_KEY) ?? 'null') : null;
+
+	const initialPrice = untrack(() =>
+		String((maxBid?.price ?? config.auction.startingPrice) + config.auction.minBidStep)
+	);
+
 	let vals = $state({
-		name:  '',
-		email: '',
-		phone: '',
-		price: String((maxBid?.price ?? config.auction.startingPrice) + config.auction.minBidStep),
+		name:  saved?.name  ?? '',
+		email: saved?.email ?? '',
+		phone: saved?.phone ?? '',
+		price: initialPrice,
 		isMax: false,
 		terms: false,
 	});
 
+
 	let errors = $state<Record<string, string>>({});
+	let loading = $state(false);
 
 	function formatPrice(e: Event) {
 		const input = e.currentTarget as HTMLInputElement;
@@ -58,18 +69,20 @@
 			<div class="max-w-xl mx-auto flex flex-col items-start gap-8">
 
 				<!-- Icon -->
-				<div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-primary">
-					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-on-primary">
-						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-					</svg>
-				</div>
+				<div class="w-full flex flex-col items-center gap-8">
+					<div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-primary">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-on-primary">
+							<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+						</svg>
+					</div>
 
-				<!-- Heading -->
-				<div>
-					<p class="text-xs font-semibold uppercase text-outline mb-3" style="letter-spacing: 0.1em;">{t.form.overline}</p>
-					<h2 class="font-display font-semibold text-on-surface text-3xl md:text-4xl" style="letter-spacing: -0.01em;">
-						{t.form.heading}
-					</h2>
+					<!-- Heading -->
+					<div class="text-center">
+						<p class="text-xs font-semibold uppercase text-outline mb-3" style="letter-spacing: 0.1em;">{t.form.overline}</p>
+						<h2 class="font-display font-semibold text-on-surface text-3xl md:text-4xl" style="letter-spacing: -0.01em;">
+							{t.form.heading}
+						</h2>
+					</div>
 				</div>
 
 				<div class="w-full" in:fly={{ y: 32, duration: 400 }}>
@@ -77,9 +90,18 @@
 						method="POST"
 						action="/?/bid"
 						use:enhance={({ formData }) => {
+							loading = true;
 							formData.set('is_max', String(vals.isMax));
 							formData.set('price', (vals.price ?? '').replace(/[\u00a0\s]/g, ''));
+							if (browser) {
+								localStorage.setItem(LS_KEY, JSON.stringify({
+									name:  vals.name,
+									email: vals.email,
+									phone: vals.phone,
+								}));
+							}
 							return async ({ result }: { result: ActionResult }) => {
+								loading = false;
 								if (result.type === 'failure') {
 									errors = (result.data?.errors as Record<string, string>) ?? {};
 									vals   = { ...vals, ...(result.data?.values ?? {}) };
@@ -106,7 +128,7 @@
 							</div>
 
 							<div class="grid grid-cols-1 sm:grid-cols-2 border-b" style="border-color:#e9e8e5;">
-								<div class="px-6 py-4 sm:border-r" style="border-color:#e9e8e5;">
+								<div class="px-6 py-4 border-b sm:border-b-0 sm:border-r" style="border-color:#e9e8e5;">
 									<label class="block text-xs font-semibold uppercase mb-2 text-outline" style="letter-spacing:0.08em;" for="email">
 										{t.form.email_label} <span class="text-primary">*</span>
 									</label>
@@ -217,10 +239,17 @@
 						{#if errors.terms}<p class="-mt-4 text-xs font-medium" style="color:#ba1a1a;">{errors.terms}</p>{/if}
 
 						<!-- ── Submit ── -->
-						<button type="submit"
-							class="w-full rounded-2xl font-semibold text-base bg-primary text-on-primary transition-all duration-200 hover:bg-primary-container"
+						<button type="submit" disabled={loading}
+							class="w-full rounded-2xl font-semibold text-base bg-primary text-on-primary transition-all duration-200 hover:bg-primary-container disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
 							style="padding:16px 32px; box-shadow:0 4px 20px rgba(130,59,24,0.3);">
-							{t.form.submit}
+							{#if loading}
+								<svg class="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+									<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+								</svg>
+								Odesílám…
+							{:else}
+								{t.form.submit}
+							{/if}
 						</button>
 					</form>
 				</div>

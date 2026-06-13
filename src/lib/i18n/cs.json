@@ -7,7 +7,7 @@
       "location": "Lokalita"
     },
     "current_bid": "Aktuální nabídka",
-    "cta": "Přihodit →",
+    "cta": "Přihodit",
     "scroll": "Více informací"
   },
 
@@ -71,7 +71,7 @@
     },
 
     "success_heading": "Příhoz odeslán",
-    "success_text":    "Zkontrolujte svůj e-mail a klikněte na potvrzovací odkaz — jinak příhoz vyprší."
+    "success_text":    "Zkontrolujte svůj e-mail a potvrďte svou nabídku."
   },
 
   "verification": {

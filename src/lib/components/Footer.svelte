@@ -25,19 +25,11 @@
 				{/each}
 			</nav>
 
-			<!-- Icon placeholder — replace with logo / social link -->
 			<div class="flex justify-end">
-				<!--
-					ICON PLACEHOLDER
-					<a href="https://instagram.com/..." target="_blank">
-						<img src="/images/instagram.svg" alt="Instagram" class="w-6 h-6" />
+				<div class="w-8 h-8 flex items-center justify-center" title="Beeebooo Crew">
+					<a href="https://becrew.cz" target="_blank">
+						<img src="/favicon.svg" alt="Beeebooo Crew" />
 					</a>
-				-->
-				<div class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container text-outline" title="Placeholder pro ikonku">
-					<svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-						<circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
-						<path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-					</svg>
 				</div>
 			</div>
 		</div>
