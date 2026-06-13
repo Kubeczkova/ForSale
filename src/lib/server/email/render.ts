@@ -1,13 +1,7 @@
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 import { config } from '$lib/config';
+import verifyBidHtmlRaw from './template/verify-bid.html?raw';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-function load(name: string): string {
-	return readFileSync(join(__dirname, 'template', name), 'utf-8');
-}
+const verifyBidHtml = verifyBidHtmlRaw as string;
 
 const defaults: Record<string, string> = {
 	'{{PROPERTY_NAME}}':  config.property.name,
@@ -21,5 +15,5 @@ function render(html: string, vars: Record<string, string> = {}): string {
 
 export const templates = {
 	verifyBid: (verificationUrl: string) =>
-		render(load('verify-bid.html'), { '{{VERIFICATION_URL}}': verificationUrl }),
+		render(verifyBidHtml, { '{{VERIFICATION_URL}}': verificationUrl }),
 };
